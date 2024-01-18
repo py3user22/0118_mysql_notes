@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>p {border: 1px green dashed; padding: 5px;}</style>
+    <title>0116 mysql notes demo</title>
+</head>
+<body>
+    <h2>0116 mysql notes demo</h2>
+    <p>
+        ___#0116 MySQL notes  <br>-------------------------- CRUD operations <br>
+
+        | C -create, add or insert <br>
+        | R -read <br>
+        | U -update <br>
+        | D -delete <br>
+        <br><br>
+        | _____DBMS <> database mgmt system <br>----------------used to interpret SQL instructions. <br>
+        <br><br>
+        | __#0116 data sub languages: <br>
+        | _____DML <> data manipulation language <br>
+        | CRUD operations fall here. <br>| insert > to add data to a table <br>| update > edit data already in table <br>| delete > remove data from table <br><br>
+        | _____DQL <> data query language <br>
+        | select cmd used to get data from 1+ tables <br><br>
+        | _____DCL <> data control language <br>| control access to db <br><br>
+        | _____DDL <> data definition language <br>
+        | create > create a table <br>
+        | alter > modify structure of table <br>
+        | drop > remove an object like a table from a database <br>
+        <br><br>
+    </p>
+    <hr><br>
+    <p>
+        ___# 0117 <br>------------------------<br>
+        Note <br>
+        The MySQL server won't start until it's configured; it's recommended to execute the bundled MySQL Configurator immediately after the MSI. <br>
+        <br><br>
+        Download & install apps: as of 011724' -----------------https://dev.mysql.com/downloads/  <br>
+        mysql-8.3.0-winx64 <br>
+        mysql-shell-8.3.0... <br>
+        mysql-connector-net-8.3.0 <br>
+
+        <br><br>
+        Click app > MySQL Configurator <br>
+        Once go thru the setup menu <br>
+        Open app > mySQL command line client <br>
+        will ask for password at start <br>> input the root password created in setup config. <br>
+        Will open the mySQL cli if got right <br>
+        <br><br>
+    </p>
+    <hr> <br>
+    <p>
+        https://dev.mysql.com/doc/refman/8.3/en/creating-tables.html <br>
+        __#0117 create a database <br>-------------------<br>
+        CREATE DATABASE college; <br>
+        <br><br>
+        after create db, you will create the table <br>-------------------<br>
+        CREATE TABLE table_name_wanted; <br><br>
+        __#ex2 0117 <br>------<br>
+        CREATE TABLE Student; <br>
+        <br><br>
+        __#ex3 <br>---------------<br>
+        CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), <br>
+       species VARCHAR(20), sex CHAR(1), birth DATE, death DATE); <br>
+        <br><br>
+        __#ex4 0117 <br>_____________lab w1 create new table <br>
+        CREATE TABLE customers( customerID int, customerName varchar(50), customerAddress varchar(255)); <br>
+        <br>
+        __# once created table, use show tables to see in menu <br>
+        SHOW TABLES; <br>
+        <br><br>
+        __# ex to verify the table was created with correct expectations <br>----------------<br>
+        DESCRIBE pet; <br>
+        <br><br>
+
+    </p>
+    <p>
+        __# add data to the table <br>---------------<br>
+        INSERT INTO table_name_wanted <br>
+        (column_one, column_two, column_three) <br>
+        VALUES (value1, value2, value3); <br><br>
+        __ex3 0117 <br>---------<br>
+        INSERT INTO Student <br>
+        (column_ID, first_name, last_name, date_of_birth) <br>
+        VALUES (value1, value2, value3, value4); <br>
+        <br><br>
+        __# ex4 0117 <br>---------------match the column names <br>
+       INSERT INTO pet <br>
+       VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL); <br>
+        <br><br>
+        __# ex5 0117 <br>------------------insert data into table <br>
+        INSERT INTO customers(customerID, customerName, customerAddress) VALUES (1, "Jack", "115 Old street Belfast"); <br>
+        <br><br>
+        __# to show tables made <br>------------------<br>
+        show tables; <br>
+        <br><br>
+        __# ex6 0117 <br>---------------insert new data into table <br>
+        INSERT INTO customers(customerID, customerName, customerAddress) VALUES (2, "James", "24 Carlson Rd London")  <br>
+        <br><br>
+
+
+    </p>
+    <p>
+        use show statement to find what db are made <br>
+        SHOW DATABASES; <br>
+        <br><br>
+        to switch to a db in show table above <br>
+        USE db_name_here <br>
+        <br><br>
+    </p>
+    <p>
+        ___# getting info from a db syntax: <br>----------------------<br>
+        SELECT what_to_select <br>
+        FROM which_table <br>
+        WHERE conditions_to_satisfy;  <br>
+        <br><br>
+        __#ex 0117 sql statement to get content of table after insert data <br>---------------------<br>
+        <br>
+        >> SELECT * FROM customers; <br>
+        <br><br>
+
+
+
+    </p>
+
+
+</body>
+</html>

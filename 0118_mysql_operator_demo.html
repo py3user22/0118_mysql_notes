@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {border: 2px blue dashed; padding: 5px;}
+        .sele {color: red;}
+    </style>
+    <title>0118 mysql operators </title>
+</head>
+<body>
+    <h2>0118 mysql operators & sort/filter of data</h2>
+    <a href="#botp" id="topg">Link to bottom page</a>
+    <br>
+    <p>
+        __# ex0118 sql operators <br>----------------<br>
+        Operators > words or characters used to perform activities in a db <br>
+        To use arithmetic operators put select at start of statement<br>
+        __#ex1 -----------<br>
+        Select 5 - 5 = 0 <br>
+        Select 5 * 5 = 25 <br>
+        Select 5 / 5 = 1 <br>
+        Select 5 % 5 = 0 <br>
+        Select 10 + 15; ....# 25 <br>
+        Select 100 % 10; ...# 0 <br>
+        <br><br>
+        __#ex2 0118 -------------using addition operator <br>
+        <a href="sele" class="sele">SELECT</a> column_name1 + column_name2 <br>
+        <a href="from" class="sele">FROM</a> table_name; <br>
+        <br><br>
+        __#ex3 ------------- <br>
+        <a href="sele" class="sele">SELECT</a> salary + allowance <br>
+        <a href="from" class="sele">FROM</a> employee; <br>
+        <br><br>
+        __#ex4 ------------- <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary + allowance = 25000; <br>
+        <br><br>
+    </p>
+    <p>
+        __# 0118 subtraction operator <br>--------------------<br>
+        <a href="sele" class="sele">SELECT</a> column_name1 - column_name2 <br>
+        <a href="from" class="sele">FROM</a> table_name; <br>
+        <br><br>
+        __# 0118 ex2 <br>--------------------<br>
+        <a href="sele" class="sele">SELECT</a> salary - tax <br>
+        <a href="from" class="sele">FROM</a> employee; <br>
+        <br><br>
+        __#ex3 ------------- <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary - tax = 50000; <br>
+        <br><br>
+    </p>
+    <p>
+        __# multiply operators <br>------------------------<br>
+        __#ex4 ------------- <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> tax * 2 = 4000; <br>
+        <br><br>
+    </p>
+    <p>
+        __#ex division operators ------------- <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> allowance / salary * 100 >= 5; <br>
+        <br><br>
+    </p>
+    <p>
+        __#ex modulus operator ------------- <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> hours % 2 = 0; <br>
+        <br><br>
+    </p>
+    <p>
+        __# sql comparison operators <br>--------------------------<br>
+        can only return true/false as output <br>
+        <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary = 18000; <br>
+        <br><br>
+        __# ex2 <br>------------------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary < 24000; <br>
+        <br><br>
+        __# ex3 <br>---------------------less than equal to<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary <= 24000; <br>
+        <br><br>
+        __#ex4 <br>-------------------greater than equal to <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary >= 24000; <br>
+        <br><br>
+        __# ex5 <br>---------------------not equal to > symbol is <> or !=  <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> salary <> 24000; <br>
+        <br><br>
+    </p>
+    <p>
+        __ex0118 <br>------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> employee_id = 1; <br>
+        <br><br>
+        __# ex2 <br>--------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">WHERE</a> employee_name = 'Jesus'; <br>
+        <br><br>
+    </p>
+    <p>
+        __#0118 <a href="orde" class="sele">ORDER BY </a>------------------------<br>
+        used for ordering or sorting data <br>
+        <br>
+        __#ex1 order by clause syntax <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> employee <br>
+        <a href="from" class="sele">ORDER BY</a> column_name ASC | DESC; <br>
+        <br><br>
+        __#ex2 order by clause syntax > multiple columns and sort order<br>
+        <a href="sele" class="sele">SELECT</a> column1, column2 <br>
+        <a href="from" class="sele">FROM</a> table_name <br>
+        <a href="from" class="sele">ORDER BY</a> column1 ASC, column2 DESC; <br>
+        <br><br>
+        __#ex3 <br>---------------sort by column ascending order<br>
+        <a href="sele" class="sele">SELECT</a> ID, first_name, last_name, nationality <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">ORDER BY</a> nationality ASC; <br>
+        <br><br>
+        __#ex4 <br>---------------sort by column decending order<br>
+        <a href="sele" class="sele">SELECT</a> ID, first_name, last_name, nationality <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">ORDER BY</a> nationality DESC; <br>
+        <br><br>
+        __#ex5 <br>---------------sort by column ascending order<br>
+        <a href="sele" class="sele">SELECT</a> ID, first_name, last_name, nationality <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">ORDER BY</a> nationality ASC, date_of_birth DESC; <br>
+        <br><br>
+    </p>
+    <p>
+        __# <a href="wher" class="sele">WHERE</a> clause ------------------------<br>
+        used to filter and retrieve records that meet a specific condition <br>
+        <br>
+        __# ex 0118 <br>
+        <a href="sele" class="sele">SELECT</a> column1, column2 <br>
+        <a href="from" class="sele">FROM</a> table_name <br>
+        <a href="from" class="sele">WHERE</a> student_id = 01; <br>
+        <br><br>
+        __# ex2  <br>
+        <a href="sele" class="sele">SELECT</a> column1, column2 <br>
+        <a href="from" class="sele">FROM</a> table_name <br>
+        <a href="from" class="sele">WHERE</a> first_name = 'Jesus'; <br>
+        <br><br>
+        __# ex3  <br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">WHERE</a> faculty = 'Engineering'; <br>
+        <br><br>
+        __# ex4 using the between operator  <br>-----------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">WHERE</a> date_of_birth <a href="betw" class="sele">BETWEEN</a> '2010-01-01' AND '2010-06-30'; <br>
+        <br><br>
+        __# ex5 using the like operator  <br>-----------------------to find the faculty in science dept.<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">WHERE</a> faculty <a href="betw" class="sele">LIKE</a> 'Sc%'; <br>
+        <br><br>
+        __# ex6 using the IN operator  <br>-----------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">WHERE</a> country <a href="betw" class="sele">IN</a> ('USA', 'UK'); <br>
+        <br><br>
+        __# ex6 using the OR operator  <br>-----------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <br>
+        <a href="from" class="sele">FROM</a> student_tbl <br>
+        <a href="from" class="sele">WHERE</a> BillingCountry = 'USA' OR BillingCountry = 'France'; <br>
+        <br><br>
+    </p>
+    <p>
+        __#0118 lab <br>-------------------<br>
+        create database Chinook; <br>
+        use Chinook; <br>
+        CREATE TABLE Customer ( CustomerId INT NOT NULL, FirstName VARCHAR(40) NOT NULL, LastName VARCHAR(20) NOT NULL, Company VARCHAR(80), Address VARCHAR(70), City VARCHAR(40), State VARCHAR(40), Country VARCHAR(40), PostalCode VARCHAR(10), Phone VARCHAR(24), Fax VARCHAR(24), Email VARCHAR(60) NOT NULL, SupportRepId INT, CONSTRAINT PK_Customer PRIMARY KEY  (CustomerId) ); <br>
+       <br><br>
+    </p>
+    <p>
+        __# to see all in the table ex <br>-----------------------<br>
+        select CustomerID, FirstName, LastName, City, State, Country from Customer; <br>
+        <br>
+        __# sort by firstname <br>---------------------<br>
+        select CustomerID, FirstName, LastName, City, State, Country from Customer ORDER BY FirstName; <br>
+        <br>
+
+        <br><br>
+    </p>
+    <p>
+        __# <a href="sele" class="sele">SELECT DISTINCT</a> clause <br>---------------------returns distinct values, w/o duplicates <br>
+        to filter out duplicates from the search add the distinct <br>
+        <br>
+        __#ex0118 <br>---------------<br>
+        <a href="sele" class="sele">SELECT DISTINCT</a> country <br>
+        <a href="from" class="sele">FROM</a> student_tbl; <br>
+        <br><br>
+        __#ex2 select distinct <br>--------------------<br>
+        <a href="sele" class="sele">SELECT DISTINCT</a> BillingCountry, BillingCity <br>
+        <a href="from" class="sele">FROM</a> invoices <br>
+        <a href="from" class="sele">ORDER BY</a> BillingCountry, BillingCity; <br>
+        <br><br>
+        __#ex3 using count to count the total columns <br> output: 24------------------------------<br>
+        <a href="sele" class="sele">SELECT COUNT(DISTINCT</a> country) <br>
+        <a href="from" class="sele">FROM</a> customers; <br>
+
+
+        <br><br>
+    </p>
+
+
+<a href="#topg" id="botp">Link to top page</a>
+</body>
+</html>

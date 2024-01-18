@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>0117 mysql create, update, delete cmds demo1</title>
+    <style>
+        p {padding: 5px; border: 2px blue dashed;}
+    </style>
+</head>
+<body>
+    <h2>0117 mysql select statement for searching</h2>
+    <p>
+        __# ex0117 select statement <br>-------------------<br>
+        <a href="sele" class="sele">SELECT</a> * <a href="from" class="from">FROM</a> table_name; <br>
+        <br><br>
+        __# ex2 adding multiple select items <br>--------------<br>
+        <a href="sele" class="sele">SELECT</a> <b>ID, name, age, level</b> <a href="from" class="from">FROM</a> players; <br>
+        <br><br>
+     </p>
+    <p>
+        __# <a href="inin" class="inin">INSERT INTO SELECT</a> column_name_to_query <br>---------------------------<br>
+        used to take data from 1 table, and insert it as data to a 2nd table <br>
+        <br><br>
+        ________# ex2 of insert into <br>-------------------------------<br>
+        <a href="inin" class="inin">INSERT INTO </a> country(countryName) <a href="sele" class="sele">SELECT</a> country <a href="from" class="from">FROM</a> players; <br>
+        <br><br>
+        __# ex3 lab <br>------------------------------<br>
+        create database bookshop; <br>
+        use bookshop; <br>
+        <br>
+        create table customers; <br>
+        INSERT INTO `customers` (`customerID`, `customerName`, `customerAddress`) VALUES <br>
+        (1, 'Jack', '115 Old street Belfast'), <br>
+        (2, 'James', '24 Carlson Rd London'), <br>
+        (4, 'Maria', '5 Fredrik Rd, Bedford'), <br>
+        (5, 'Jade', '10 Copland Ave Portsmouth '), <br>
+        (6, 'Yasmine', '15 Fredrik Rd, Bedford'), <br>
+        (3, 'Jimmy', '110 Copland Ave Portsmouth'); <br>
+        <br><br>
+    </p>
+    <p>
+        __#0117 update data in table <br>
+        note: SET specifies the location of the records w/in the tables <br>
+        note: WHERE is used it identify records that fullfil specified condition <br>
+
+        ----------------------<br>
+        <a href="upda" class="upda">UPDATE</a> student_tbl <br>
+        <a href="set">SET</a> home_address = '234 park ave', contact_number = '234555555' <br>
+        <a href="wher">WHERE</a> ID = 3 <br>
+        <br><br>
+        __# ex2 update column <br>---------------------<br>
+        <a href="upda" class="upda">UPDATE</a> student_tbl <br>
+        <a href="set">SET</a> college_address = 'Harper building' <br>
+        <a href="wher">WHERE</a> department = 'engineering' <br>
+        <br><br>
+        __# delete data in table <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <a href="wher">WHERE</a> last_name = 'Miller' <br>
+        <br><br>
+        __# ex2 delete data  <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <a href="wher">WHERE</a> department = 'engineering' <br>
+        <br><br>
+        __# ex3 delete  all data from table  <br>-----------------<br>
+        <a href="dele">DELETE FROM</a> student_tbl <br>
+        <br><br>
+        __# ex4 delete from <br>---------------<br>
+        DELETE FROM customers WHERE customerID = 3; <br>
+        DELETE FROM customers WHERE customerID = 5; <br>
+
+    </p>
+
+    <br>
+
+    <br><br>
+</body>
+</html>

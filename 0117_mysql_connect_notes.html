@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {padding: 5px; border: 1px green dashed;}
+    </style>
+    <title>0117 mysql connect to db demo1</title>
+</head>
+<body>
+    <h2>0117 mysql connect to db demo1</h2>
+    <p>
+        ___#ex0117 mysql shell connect to mysql server localhost <br>----------------------------- MySQL shell >> \?  ...# for help below <br>
+         <br>
+        - \ .... Start multi-line input when in SQL mode. <br><br>
+        - \connect    (\c) ..|.. Connects the shell to a MySQL server and assigns the global session. <br>
+        <br>
+        __# to see the help menu for connect <br>----------------------<br>
+        > \? \connect <br>
+        <br>
+NAME <br>
+      \connect - Connects the shell to a MySQL server and assigns the global
+      session. <br>
+<br>
+SYNTAX <br>
+      \connect [< TYPE>] < URI> <br>
+      \c [< TYPE>] < URI> <br>
+<br>
+________DESCRIPTION: <br>
+      <b>TYPE</b> is an optional parameter to specify the session type. Accepts the
+      following values: <br>
+        <br>
+       --mc, --mysql: create a classic MySQL protocol session (default port
+        3306) <br>
+       --mx, --mysqlx: create an X protocol session (default port 33060) <br>
+       --ssh <SSHURI>: create an SSH tunnel to use as a gateway for db
+        connection. This requires that db port is specified in advance. <br>
+        <br>
+      ___#Note:<br>  If TYPE is omitted, automatic protocol detection is done, unless the
+      protocol is given in the URI. <br>
+        <br>
+      URI and SSHURI format is: [user[:password]@]hostname[:port] <br>
+<br>
+EXAMPLE <br>
+      \connect --mx root@localhost <br>
+        _____Creates a global session using the X protocol to the indicated URI. <br>
+
+        <br><br>
+    </p>
+    <p>
+        ___#0117 example edit <br>-----------------------<br>
+        SYNTAX <br>
+        \connect [< TYPE>] < URI> <br>
+        \c [< TYPE>] < URI> <br><br>
+        <br>
+        __# to check hostname on mysql <br>------------------<br>
+        SELECT @@hostname; <br>
+        ;-------------------; <br>
+        | @@hostname | <br>
+        |-------------------| <br>
+        | jg11MSI .........| <br>
+        '-------------------' <br>
+        <br><br>
+        __# to see mysql users <br>----------------------------<br>
+        SELECT users(); <br>
+        ;-------------------; <br>
+        | user() .............. | <br>
+        |--------------------| <br>
+        | root@localhost | <br>
+        '--------------------' <br>
+        <br><br>
+
+
+        URI and SSHURI format is:<br>_________________<br>
+        [user[:password]@]hostname[:port] <br><br>
+
+        <strike> ___#ex2 URI <br>
+        [root@localhost[:password_here]@]jg11MSI[:3306] </strike> <br>
+        <br><br>
+        ___#ex3 0117 full line demo>> good connect  <br>
+        ............... # TYPE ...#URI <br>
+        \connect --mysql root@localhost <br>
+         <br>__________output: <br>
+        Creating a Classic session to 'root@localhost' <br>
+        Please provide the password for 'root@localhost': ************* <br>
+        Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): Y <br>
+        Fetching schema names for auto-completion... Press ^C to stop. <br>
+        Your MySQL connection id is 13 <br>
+        Server version: 8.3.0 MySQL Community Server - GPL  <br>
+        No default schema selected; type \use <schema> to set one. <br>
+        <br><br>
+    </p>
+    <p>
+        <strike>
+        ___# 0117 edit2 to get mysql shell to mysql server <br>----------------------<br>
+        \connect --mysql [root@localhost[:Xy-@jjk244--P]@]jg11MSI[:3306] <br>
+            Invalid URI: Illegal character [[] found at position 0 </strike>
+            <br><br>
+        \connect [--mx|--mysqlx|--mc|--mysql] [--ssh <sshuri>] <URI> <br><br>
+
+
+
+        <br><br>
+    </p>
+    <p>
+        - \disconnect ..|..        Disconnects the global session. <br>
+ - \edit       (\e) ..|..   Launch a system editor to edit a command to be executed. <br>
+ - \exit ..|..              Exits the MySQL Shell, same as \quit. <br>
+ - \help       (\?,\h) ..|.. Prints help information about a specific topic. <br>
+ - \history ..|..           View and edit command line history. <br>
+ - \js      ..|..           Switches to JavaScript processing mode. <br>
+ - \nopager  ..|..          Disables the current pager. <br>
+ - \nowarnings (\w) ..|..   Don't show warnings after every statement. <br>
+ - \option     ..|..        Allows working with the available shell options. <br>
+ - \pager      (\P) ..|..   Sets the current pager. <br>
+ - \py         ..|..        Switches to Python processing mode. <br>
+ - \quit       (\q) ..|..   Exits the MySQL Shell. <br>
+ - \reconnect  ..|..        Reconnects the global session. <br>
+ - \rehash     ..|..        Refresh the autocompletion cache. <br>
+ - \show       ..|..        Executes the given report with provided options and arguments. <br>
+ - \source     (\.) ..|..   Loads and executes a script from a file. <br>
+ - \sql        ..|..        Executes SQL statement or switches to SQL processing mode when no statement is given. <br>
+ - \status     (\s) ..|..   Print information about the current global session. <br>
+ - \system     (\!) ..|..   Execute a system shell command. <br>
+ - \use        (\u) ..|..   Sets the active schema. <br>
+ - \warnings   (\W) ..|..   Show warnings after every statement. <br>
+ - \watch      ..|..        Executes the given report with provided options and arguments in a loop. <br>
+<br><br>
+GLOBAL OBJECTS <br>
+<br>
+The following modules and objects are ready for use when the shell starts: <br>
+<br>
+ - dba <br>..|..    Used for InnoDB Cluster, ReplicaSet, and ClusterSet administration. <br>
+ - mysql <br>..|..  Support for connecting to MySQL servers using the classic MySQL protocol. <br>
+ - mysqlx <br>..|.. Used to work with X Protocol sessions using the MySQL X DevAPI. <br>
+ - os <br>..|..     Gives access to functions which allow to interact with the operating system. <br>
+ - plugins <br>..|.. Plugin to manage MySQL Shell plugins <br>
+ - shell <br>..|..  Gives access to general purpose functions and properties. <br>
+ - sys  <br>..|..   Gives access to system specific parameters. <br>
+ - util <br>..|..   Global object that groups miscellaneous tools like upgrade checker <br>
+        <br><br>
+
+    </p>
+</body>
+</html>
