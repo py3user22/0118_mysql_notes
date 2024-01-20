@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        p {padding: 5px; border: 2px green dashed;} .colo {color: orange;} .purp {color: purple;}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h2>0118 mysql schema demo</h2>
+    <p>
+        __#0118 mysql schema <br>-----------------<br>
+        schema objects.. (tables, columns, relationships, datatypes, and keys) <br>
+        <br>
+        __#ex SQL database schema <br>--------------------<br>
+        music database w/ data about artist, albums, genres, stored in each owns table. <br>
+        <br>
+        |------------------tables: <br>
+        | <a href="colo" class="colo"> <b><i>Albums</i></b> </a> <br>
+        | ------------------ <br>
+        | AlbumID INT <br>
+        | AlbumName VARCHAR <br>
+        | ArtistID INT <br>
+        | Indexes <br>
+        '--------------------
+        <br><br>
+        |------------------ <br>
+        | <a href="colo" class="colo"> <b><i>Genre</i></b> </a> <br>
+        | ------------------ <br>
+        | GenreID INT <br>
+        | Genre VARCHAR <br>
+        | Indexes <br>
+        '--------------------
+        <br><br>
+        |------------------ <br>
+        | <a href="colo" class="colo"><b><i>Artist</i></b> </a> <br>
+        | ------------------ <br>
+        | ArtistID INT <br>
+        | ArtistName VARCHAR <br>
+        | Indexes <br>
+        '--------------------
+    </p>
+    <p>
+        __#0118 conceptual or logical schema <br>-------------------------<br>
+        describes the structure of the entire database for all users. <br>
+        <br>
+        |------------------tables: <br>
+        | <a href="colo" class="colo"> <b><i>Employee</i></b> </a> <br>
+        | ------------------ <br>
+        | .. EmpNo INT <br>
+        ;->  EmpName VARCHAR(100)  <br>
+        | .. DeptNo INT <br>
+        | .. Salary INT <br>
+        | __________________ <br>
+        | <br>
+        | <a href="colo" class="colo"> <b><i>Department</i></b> </a> <br>
+        | ------------------ <br>
+        | .. DeptNo INT <br>
+        |--> EmpName VARCHAR(50) ____# foreign key to Employee table <br>
+        | .. Head VARCHAR(100) <br>
+        <br><br>
+    </p>
+    <p>
+        <a href="colo" class="colo"></a>
+        <a href="purp" class="purp"></a>
+    </p>
+    <p>
+        __#0118 mysql schemas, make some db with tables <br>---------------------------------<br>
+mysql> <a href="purp" class="purp">create table</a> cart_order( <br>
+    -> order_id INT, <br>
+    -> customer_id INT, <br>
+    -> product_id INT, <br>
+    -> quantity INT, <br>
+    -> order_date DATE, <br>
+    -> status VARCHAR(100), <br>
+    -> PRIMARY KEY (order_id), <br>
+    -> FOREIGN KEY (customer_id) REFERENCES customer(customer_id), <br>
+    -> FOREIGN KEY (product_id) REFERENCES product(product_id)); <br>
+
+        <br><br>
+        mysql> <a href="purp" class="purp">create table </a> product( <br>
+    -> product_id INT, <br>
+    -> name VARCHAR(100), <br>
+    -> price NUMERIC(8,2), <br>
+    -> description VARCHAR(255), <br>
+    -> PRIMARY KEY (product_id)); <br>
+        <br><br>
+        mysql> <a href="purp" class="purp"> create table </a> customer( <br>
+    -> customer_id INT, <br>
+    -> name VARCHAR(100), <br>
+    -> address VARCHAR(255), <br>
+    -> email VARCHAR(100), <br>
+    -> phone VARCHAR(10), <br>
+    -> PRIMARY KEY (customer_id)); <br>
+        <br><br>
+    __# show tables created cmd <br>----------------<br>
+        show tables; <br>-------------<br>
+        | cart_order <br>
+        | customer <br>
+        | product <br>
+
+        <br><br>
+    </p>
+    <p>
+        ___#0118 logical db schema <br>---------------(ER-D) entity relationship diagram <br>
+        basically the overview of the tables and how they connect to each other by using primary/foreign keys <br>
+        <br><br>
+        >> show tables; <br>----------------<br>
+        | table1 <br>
+        | table_order <br>
+        | waiter <br>
+        | reservation <br>
+        | order_menu_item <br>
+        | customer <br>
+        | menu_item <br>
+        | menu <br>
+        <br><br>
+    </p>
+    <p>
+        ___# physical db schema <br>-----------------<br>
+        basically the coding to make the db and the tables <br>
+        <br><br>
+        CREATE DATABASE restaurant; <br>
+        <br>
+        | CREATE TABLE tbl( <br>
+        | .. table_id INT, <br>
+        | .. location VARCHAR(255), <br>
+        | .. PRIMARY KEY (table_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE waiter( <br>
+        | .. waiter_id INT, <br>
+        | .. name VARCHAR(150), <br>
+        | .. contact_no VARCHAR(10), <br>
+        | .. shift VARCHAR(10), <br>
+        | .. PRIMARY KEY (waiter_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE table_order( <br>
+        | .. order_id INT, <br>
+        | .. date_time DATETIME, <br>
+        | .. table_id INT, <br>
+        | .. waiter_id INT, <br>
+        | .. PRIMARY KEY (order_id), <br>
+        | .. FOREIGN KEY (table_id) REFERENCES tbl(table_id), <br>
+        | .. FOREIGN KEY (waiter_id) REFERENCES waiter(waiter_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE customer( <br>
+        | .. customer_id INT, <br>
+        | .. name VARCHAR(100), <br>
+        | .. NIC_no VARCHAR(12), <br>
+        | .. contact_no VARCHAR(10), <br>
+        | .. PRIMARY KEY (customer_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE reservation( <br>
+        | .. reservation_id INT, <br>
+        | .. date_time DATETIME, <br>
+        | .. no_of_pax INT, <br>
+        | .. order_id INT, <br>
+        | .. table_id INT, <br>
+        | .. customer_id INT, <br>
+        | .. PRIMARY KEY (reservation_id), <br>
+        | .. FOREIGN KEY (order_id) REFERENCES table_order(table_id), <br>
+        | .. FOREIGN KEY (table_id) REFERENCES tbl(table_id), <br>
+        | .. FOREIGN KEY (customer_id) REFERENCES customer(customer_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE menu( <br>
+        | .. menu_id INT, <br>
+        | .. description VARCHAR(255), <br>
+        | .. availability INT, <br>
+        | .. PRIMARY KEY (menu_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE menu_item( <br>
+        | .. menu_item_id INT, <br>
+        | .. description VARCHAR(255), <br>
+        | .. price FLOAT, <br>
+        | .. availability INT, <br>
+        | .. menu_id INT, <br>
+        | .. PRIMARY KEY (menu_item_id), <br>
+        | .. FOREIGN KEY (menu_id) REFERENCES menu(menu_id) <br>
+        | ); <br>
+        <br><br>
+        CREATE TABLE order_menu_item( <br>
+        | .. order_id INT, <br>
+        | .. menu_item_id INT, <br>
+        | .. quantity INT, <br>
+        | .. PRIMARY KEY (order_id,menu_item_id), <br>
+        | .. FOREIGN KEY (order_id) REFERENCES table_order(order_id), <br>
+        | .. FOREIGN KEY (menu_item_id) REFERENCES menu_item(menu_item_id) <br>
+        | ); <br>
+
+        <br><br>
+
+
+    </p>
+
+</body>
+</html>
